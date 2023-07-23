@@ -1,14 +1,5 @@
 import React from 'react';
-
-const handlesignup = () => {
-    window.location.href = '/signup';
-};
-const handlelogin = () => {
-    window.location.href = '/login';
-};
-const handlecourse = () => {
-    window.location.href = '/courses';
-};
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -54,9 +45,9 @@ const Home = () => {
                 {
                     localStorage.getItem('loggedIn') === 'false' && (
                         <div>
-                            <pre className="cta-text lead">Already have an account?  <button className="btn btn-lg btn-outline-light mr-2" onClick={handlelogin}>Login</button>
+                            <pre className="cta-text lead">Already have an account? <Link to="/login" className="btn btn-outline-dark">Login</Link>
                             </pre>
-                            <pre className="cta-text lead">Sign up now to explore our wide range of courses. <button className="btn btn-lg btn-secondary" onClick={handlesignup}>Sign Up</button>
+                            <pre className="cta-text lead">Sign up now to explore our wide range of courses. <Link to="/signup" className="btn btn-lg btn-secondary">Sign up</Link>
                             </pre>
                         </div>    
                     )
@@ -65,7 +56,7 @@ const Home = () => {
                     localStorage.getItem('loggedIn') === 'true' && (
                         <div>
                             <p className="cta-text lead">Explore courses now!</p>
-                            <button className="btn btn-lg btn-secondary" onClick={handlecourse}>Courses</button>
+                            <Link to="/courses" className="btn btn-lg btn-secondary">Courses</Link>
                         </div>
                     )
                 }

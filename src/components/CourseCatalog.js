@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-const handlelogin = () => {
-    window.location.href = '/login';
-}
-
-const handlesignup = () => {
-    window.location.href = '/signup';
-}
+import { Link } from 'react-router-dom';
 
 const CourseCatalog = () => {
     const [courses, setCourses] = useState([]);
@@ -52,8 +45,8 @@ const CourseCatalog = () => {
                 localStorage.getItem('loggedIn') === 'false' && (
                     <div className="mt-4">
                         <h2>Login or Signup to see the courses!</h2>
-                        <button className="btn btn-lg btn-outline-dark mr-2 m-4" onClick={handlelogin}>Login</button>
-                        <button className="btn btn-lg btn-secondary m-4" onClick={handlesignup}>Sign Up</button>
+                        <Link to="/login" className="btn btn-lg btn-primary m-4">Login</Link>
+                        <Link to="/signup" className="btn btn-lg btn-secondary m-4">Sign Up</Link>
                     </div>
                 )
             }
